@@ -33,6 +33,7 @@ ln -s /etc/sv/elogind /etc/runit/runsvdir/default/
 ln -s /etc/sv/bluetoothd /etc/runit/runsvdir/default/
 ln -s /etc/sv/lightdm /etc/runit/runsvdir/default/
 ln -s /etc/sv/NetworkManager /etc/runit/runsvdir/default/
+resolvconf -u # hopefully this works
 
 # 5. Some drivers (feel free to add to this if more are needed)
 xbps-install -y linux-firmware-amd mesa-dri vulkan-loader mesa-vulkan-radeon mesa-vaapi
@@ -57,7 +58,7 @@ flatpak install -y org.kde.kdenlive
 
 # 7. Apps
 xbps-install -y steam gamescope nautilus cmake gcc openjdk python rustup cargo neovim vim shotwell mpv curl \
-gnome-tweaks git lazygit github-cli ffmpeg
+gnome-tweaks git lazygit github-cli ffmpeg btop
 # steam needs extra libraries, this is what it wants according to the README.voidlinux
 xbps-install -y libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit mesa-dri-32bit mesa-vulkan-radeon-32bit
 curl -f https://zed.dev/install.sh | sh # zed
